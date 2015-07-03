@@ -25,7 +25,7 @@ class DefaultController extends Controller {
         ;
         
         $prop2 = $repository->findOneBy(array('mail' => $prop->getMail()));
-//        echo "porp2:".$prop2;
+
         if ($form->isSubmitted()) {
             if ($prop2 == NULL) {
                 return $this->render('DL2015IndexBundle::message.html.twig', array('form' => $form->createView()));
