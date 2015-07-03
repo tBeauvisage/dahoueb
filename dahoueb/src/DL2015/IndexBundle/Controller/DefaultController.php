@@ -2,7 +2,12 @@
 
 namespace DL2015\IndexBundle\Controller;
 
+use DL2015\IndexBundle\Entity\Challenge;
+use DL2015\IndexBundle\Entity\Regate;
+use DL2015\IndexBundle\Entity\Voilier;
+use DL2015\IndexBundle\Entity\Licencie;
 use DL2015\IndexBundle\Entity\Proprietaire;
+use DL2015\IndexBundle\Entity\Participe;
 use Symfony\Component\Form\FormBuilder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -34,27 +39,25 @@ class DefaultController extends Controller {
         return $this->render('DL2015IndexBundle::aside.html.twig', array('form' => $form->createView()));
     }
 
-    public function addAction() {
-
-        $article = new Article();
-        $article->setContent('Test de base de donées');
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($article);
-        $em->flush();
-        $view = 'DL2015IndexBundle:Default:index.html.twig';
-        return $this->render($view);
-    }
-
-    public function viewAction($id) {
-        $repo = $this->getDoctrine()
-                ->getManager()
-                ->getRepository('DL2015IndexBundle:Article');
-        $article = $repo->find($id);
-
-        if ($article === null) {
-            throw new NotFoundHttpException("L'annonce d'id " . $id . " n'existe pas.");
-        }
-        return $this->render('DL2015IndexBundle::indexLayout.html.twig', array('article' => $article));
-    }
-
+   
+public function registerAction(){
+        $challenge = new Challenge();
+        $regate = new Regate();
+        $voilier = new Voilier();
+        $licencie = new Licencie();
+        $participe = new Participe();
+        
+        $form = $this->createFormBuilder(array($challenge,$regate,$voilier,$licencie,$participe))
+                ->add('challenge','text', array('label' => 'Challenge en cours'))
+                ->add('libreg','choice', array('label' => 'Régate'))
+                ->add('datreg','text', array('label' => 'Date régate'))
+                ->add('lieureg','text', array('label' => 'Lieu'))
+                ->add('distance','text', array('label' => 'Distance'))
+                ->add('nomvoil','choice', array('label' => 'voilier(s) non inscrit(s)'))
+                ->add('nomlic','choice', array('label' => 'Noms équipiers'))
+                ->add('numlicski','choice', array('label' => 'Skipper'))
+                ->add('Valider inscription','submit')
+                ->getForm();
+       return $this->render('DL2015IndexBundle::inscription.html.twig', array('form' => $form->createView()));
+   }
 }

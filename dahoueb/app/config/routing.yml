@@ -1,5 +1,5 @@
 dl2015_index:
     resource: "@DL2015IndexBundle/Resources/config/routing.yml"
-    prefix:   /index
+    prefix:   /
 
 
