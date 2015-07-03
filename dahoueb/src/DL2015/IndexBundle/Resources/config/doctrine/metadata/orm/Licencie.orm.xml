@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Licencie" table="licencie">
+    <id name="numlic" type="decimal" column="NUMLIC">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nomlic" type="string" column="NOMLIC" length="15" nullable="false"/>
+    <field name="ptsffv" type="decimal" column="PTSFFV" precision="5" scale="0" nullable="true"/>
+    <field name="annlic" type="integer" column="ANNLIC" nullable="false"/>
+    <field name="datnaiss" type="date" column="DATNAISS" nullable="false"/>
+    <many-to-many field="codepar" target-entity="Participe" mapped-by="numlic"/>
+  </entity>
+</doctrine-mapping>

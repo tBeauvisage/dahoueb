@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="ClubNautique" table="club_nautique">
+    <id name="idclub" type="integer" column="IDCLUB">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="mailclub" type="string" column="MAILCLUB" length="25" nullable="false"/>
+    <field name="contact" type="string" column="CONTACT" length="25" nullable="false"/>
+    <field name="telephone" type="decimal" column="TELEPHONE" precision="10" scale="0" nullable="false"/>
+  </entity>
+</doctrine-mapping>

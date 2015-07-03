@@ -1,0 +1,22 @@
+{% extends "::layoutBase.html.twig" %}
+{% block title %} Index {% endblock %}
+{% block content %}
+    <div id="center">
+        <section>
+            <article id="contenu">
+                {% block article %}
+                    {% include 'DL2015IndexBundle::contenuArticle.html.twig' %}
+                {% endblock %}
+                     
+            </article>
+            <aside id="side">
+                {% block aside %}
+                   
+                {% endblock %}
+            </aside>
+            
+               
+        </section>
+    </div>
+                 
+{% endblock %}

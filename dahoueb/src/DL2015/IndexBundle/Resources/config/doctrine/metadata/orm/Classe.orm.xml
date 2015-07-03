@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Classe" table="classe">
+    <indexes>
+      <index name="CIF_1_FK" columns="CODSER"/>
+    </indexes>
+    <id name="numclas" type="string" column="NUMCLAS" length="4">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="libclas" type="string" column="LIBCLAS" length="15" nullable="false"/>
+    <field name="coefclas" type="decimal" column="COEFCLAS" precision="3" scale="2" nullable="false"/>
+    <field name="jauge" type="string" column="JAUGE" length="4" nullable="false"/>
+    <many-to-one field="codser" target-entity="Serie">
+      <join-columns>
+        <join-column name="CODSER" referenced-column-name="CODSER"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

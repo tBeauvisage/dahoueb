@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8" />
+ <title>{% block title %}{% endblock %}Yatch Club Dahouet</title>
+<link rel="stylesheet" href="{{ asset('bundles/index/css/style.css') }}">
+</head>
+<body>
+        <div id="header">
+            
+        </div>
+        
+        <nav id="navigation">
+            <ul>
+                <li><a href="#"><span class="chevron bottom"></span>Accueil</a>
+                    <ul><li><a href="#">Présentation des régates</a></li></ul>
+                </li>
+                <li><a href="#"><span class="chevron bottom"></span>Challenges et régates</a>
+                    <ul>
+                    <li><a href="#">Inscription</a></li>
+                    <li><a href="#">Résultats</a></li>
+                    <li><a href="#">Archives</a></li>
+                    </ul>
+                </li>   
+            </ul>
+        </nav>
+       {% block content %}
+       {% endblock %}
+       
+        
+            
+        
+       
+        <div id="footer">
+            <div>
+                <h3>Copyright &copy; 2014 DL</h3>
+                <p>- Mentions légales - Contact - Acessibilité -</p>
+                <p id="retour"><a href="#header">Retour en haut</a></p>
+            </div>
+            
+        </div>
+    </body>
+</html>
+

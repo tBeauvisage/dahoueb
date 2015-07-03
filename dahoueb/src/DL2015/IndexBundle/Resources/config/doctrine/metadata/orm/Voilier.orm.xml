@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Voilier" table="voilier">
+    <indexes>
+      <index name="CIF_2_FK" columns="NUMCLAS"/>
+      <index name="APPARTENIR_FK" columns="IDMBR"/>
+    </indexes>
+    <id name="numvoil" type="decimal" column="NUMVOIL">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nomvoil" type="string" column="NOMVOIL" length="15" nullable="false"/>
+    <field name="nbrpts" type="integer" column="NBRPTS" nullable="true"/>
+    <many-to-one field="idmbr" target-entity="Proprietaire">
+      <join-columns>
+        <join-column name="IDMBR" referenced-column-name="IDMBR"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="numclas" target-entity="Classe">
+      <join-columns>
+        <join-column name="NUMCLAS" referenced-column-name="NUMCLAS"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="cdochal" target-entity="Challenge" inversed-by="numvoil">
+      <join-table name="classer">
+        <join-columns>
+          <join-column name="NUMVOIL" referenced-column-name="NUMVOIL"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="CDOCHAL" referenced-column-name="CDOCHAL"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

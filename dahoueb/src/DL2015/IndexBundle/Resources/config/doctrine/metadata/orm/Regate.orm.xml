@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Regate" table="regate">
+    <indexes>
+      <index name="FK1_regate_challenge" columns="CDOCHAL"/>
+      <index name="FK2_regate_commissaire" columns="CODCOMISSION"/>
+    </indexes>
+    <id name="numreg" type="decimal" column="NUMREG">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="libreg" type="string" column="LIBREG" length="25" nullable="false"/>
+    <field name="datreg" type="date" column="DATREG" nullable="false"/>
+    <field name="lieureg" type="string" column="LIEUREG" length="40" nullable="false"/>
+    <field name="distance" type="decimal" column="DISTANCE" precision="4" scale="0" nullable="false"/>
+    <field name="heurdep" type="time" column="HEURDEP" nullable="true"/>
+    <many-to-one field="codcomission" target-entity="Commissaire">
+      <join-columns>
+        <join-column name="CODCOMISSION" referenced-column-name="CODCOM"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="cdochal" target-entity="Challenge">
+      <join-columns>
+        <join-column name="CDOCHAL" referenced-column-name="CDOCHAL"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="codcom" target-entity="Commissaire" inversed-by="numreg">
+      <join-table name="juge">
+        <join-columns>
+          <join-column name="NUMREG" referenced-column-name="NUMREG"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="CODCOM" referenced-column-name="CODCOM"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

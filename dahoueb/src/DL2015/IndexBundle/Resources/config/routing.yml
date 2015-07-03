@@ -1,0 +1,11 @@
+dl2015_index_homepage:
+    path:     /
+    defaults: { _controller: DL2015IndexBundle:Default:index }
+
+dl2015_index_add:
+    path:     /add
+    defaults: { _controller: DL2015IndexBundle:Default:add }
+    
+dl2015_index_view:
+    path:     /view/{id}
+    defaults: { _controller: DL2015IndexBundle:Default:view }

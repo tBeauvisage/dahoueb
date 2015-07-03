@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Participe" table="participe">
+    <indexes>
+      <index name="FK1_participe_voilier" columns="NUMVOIL"/>
+      <index name="FK2_participe_regate" columns="NUMREG"/>
+      <index name="FK3_participe_licencie" columns="NUMLICSKI"/>
+    </indexes>
+    <id name="codepar" type="integer" column="CODEPAR">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="statut" type="integer" column="STATUT" nullable="false"/>
+    <field name="dateinsc" type="datetime" column="DATEINSC" nullable="false"/>
+    <field name="tpsreel" type="decimal" column="TPSREEL" precision="5" scale="0" nullable="true"/>
+    <field name="codedec" type="string" column="CODEDEC" length="1" nullable="true"/>
+    <field name="place" type="integer" column="PLACE" nullable="true"/>
+    <field name="tpscomp" type="decimal" column="TPSCOMP" precision="5" scale="0" nullable="true"/>
+    <field name="heurarr" type="time" column="HEURARR" nullable="true"/>
+    <field name="numport" type="string" column="NUMPORT" length="10" nullable="false"/>
+    <many-to-one field="numlicski" target-entity="Licencie">
+      <join-columns>
+        <join-column name="NUMLICSKI" referenced-column-name="NUMLIC"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="numreg" target-entity="Regate">
+      <join-columns>
+        <join-column name="NUMREG" referenced-column-name="NUMREG"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="numvoil" target-entity="Voilier">
+      <join-columns>
+        <join-column name="NUMVOIL" referenced-column-name="NUMVOIL"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="numlic" target-entity="Licencie" inversed-by="codepar">
+      <join-table name="equipage">
+        <join-columns>
+          <join-column name="CODEPAR" referenced-column-name="CODEPAR"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="NUMLIC" referenced-column-name="NUMLIC"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>
