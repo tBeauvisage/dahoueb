@@ -31,7 +31,7 @@ class DefaultController extends Controller {
         ;
         $prop2 = new Proprietaire();
         $prop2 = $repository->findOneBy(array('mail' => $prop->getMail()));
-        var_dump($prop);
+        
 
 
         if ($form->isSubmitted()) {
