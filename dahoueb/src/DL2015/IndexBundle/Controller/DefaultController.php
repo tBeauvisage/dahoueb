@@ -74,7 +74,7 @@ class DefaultController extends Controller {
 
     public function logoutAction() {
         $session = $this->getRequest()->getSession();
-        $session->invalidate();
+        $session->clear();
         $url = $this->generateUrl('dl2015_index_homepage');
     return $this->redirect($url);
     
