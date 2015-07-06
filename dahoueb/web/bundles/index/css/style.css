@@ -1,0 +1,305 @@
+/* caracteristiques principales de mon body */
+body{
+    height: 100%;
+    margin: auto;
+    max-width: 960px;
+    background-color: #E3E3E3;
+/*     création du halo autour du corps */
+    -webkit-box-shadow: 0px 0px 8px 1px black;
+    -moz-box-shadow: 0px 0px 8px 1px black;
+    box-shadow: 0px 0px 8px 1px black;
+    
+}
+/* je fixe la hauteur max de mon header et j'appelle mon image de bannière */
+#header{
+    max-height: 198px;
+    min-height: 198px;
+    background-image:url("../images/ImageTitre.jpg");
+    
+    
+}
+/* css général de ma barre menu */
+#navigation{
+    color: white;
+    background-color: #173E69;
+    font-family: Verdana;
+}
+nav ul ul {
+    display: none;
+}
+
+nav ul li:hover > ul {
+    display: block;
+}
+nav ul {
+    color: black;
+    background-color: #173E69; 
+    background: linear-gradient(top, #173E69 0%, #173E69 100%);  
+    background: -moz-linear-gradient(top, #173E69 0%, #173E69 100%); 
+    background: -webkit-linear-gradient(top, #173E69 0%,#173E69 100%); 
+    list-style: none;
+    position: relative;
+    display: inline-table;
+    margin: 0;
+    padding: 0;
+}
+nav ul:after {
+    color: white;
+    content: "";
+    clear: both; 
+    display: block;
+}
+nav ul li {
+    height: 35px;
+    color: white;
+    float: left;
+    line-height: 35px;
+}
+nav ul li:hover {
+    color: black;
+    background: #4b545f;
+    background: linear-gradient(top, #E3E3E3 0%, #E3E3E3 40%);
+    background: -moz-linear-gradient(top, #E3E3E3 0%, #E3E3E3 40%);
+    background: -webkit-linear-gradient(top, #E3E3E3 0%,#E3E3E3 40%);
+}
+nav ul li:hover a {
+    color: black;
+}
+	
+nav ul li a {
+    display: block; 
+    text-align: center;
+    color: white; 
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+nav ul ul {
+    background: #5f6975;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+}
+nav ul ul li {
+    float: none; 
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    -moz-box-shadow: 1px 2px 8px #000000;
+    -webkit-box-shadow: 1px 2px 8px #000000;
+    box-shadow: 1px 2px 8px #000000;
+    position: relative;
+    line-height: 35px;
+}
+nav ul ul li a {
+    width: 250px;
+    text-align: left;
+    color: #fff;
+    background: #E3E3E3;
+    padding-left: 10px;
+    padding-right: 10px;
+}	
+nav ul ul li a:hover {
+    color: white;
+    background: black;
+}
+/* css du footer */
+#footer{
+    
+    height: 10%;
+    min-height: 132px;
+    margin: opx;
+    padding: opx;
+    color: white;
+    background-color: #173E69;
+    font-family: Verdana;
+}
+#footer h3{
+    margin-left: 3%;
+    padding-top: 3%;
+}
+#footer p{
+    margin-left: 3%;
+    display: inline-block;
+}
+#retour {
+    display: inline-block;
+    float: right;
+    margin-right: 3%;
+}
+#retour a{
+    color: white;
+}
+#contenu {
+    padding: 10px;
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 57%;
+    height: 70%;
+    border: 1px solid grey;
+    background-color: white;
+    min-height: 1004px;
+}
+.chevron::before {
+    margin-right: 12px;
+    margin-bottom: 3px;
+    border-style: solid;
+    border-width: 0.25em 0.25em 0 0;
+    content: '';
+    display: inline-block;
+    height: 0.45em;
+    left: 0.15em;
+    position: relative;
+    transform: rotate(-45deg);
+    vertical-align: center;
+    width: 0.45em;
+    transform: rotate(135deg);
+}
+
+#side{
+    float: right;
+    width: 32%; 
+}
+
+#reseaux{
+    padding: 1%;
+    font-family: Trebuchet MS;
+    -webkit-box-shadow: 0px 0px 2px 1px black;
+    -moz-box-shadow: 0px 0px 2px 1px black;
+    box-shadow: 0px 0px 2px 1px black;
+    min-height: 100px;
+    height: 33%;
+    max-height: 100px;
+    text-align: center;
+    border-radius: 5px;
+    margin-right: 20px;
+    margin-top: 20px;
+    text-decoration: none;
+    list-style: none;
+    background-color: white;
+    vertical-align: top;
+}
+#bandeauInt{
+    height: 33%;
+    min-height: 33px;
+    background-color: #173E69;
+    color: white;
+    line-height: 33px;
+}
+#connection{
+    font-family: Trebuchet MS;
+    -webkit-box-shadow: 0px 0px 2px 1px black;
+    -moz-box-shadow: 0px 0px 2px 1px black;
+    box-shadow: 0px 0px 2px 1px black;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 50px;
+    margin-right: 20px;
+    height: 33%;
+    min-height: 50px;
+    max-height: 150;
+    margin-top: 15px;   
+}
+#lien{
+    text-align: center;
+    background-color: white;
+    text-decoration: none;
+    border-radius:  5px;
+    
+}
+#recherche, #infChall{
+    font-family: Trebuchet MS;
+    -webkit-box-shadow: 0px 0px 2px 1px black;
+    -moz-box-shadow: 0px 0px 2px 1px black;
+    box-shadow: 0px 0px 2px 1px black;
+    min-height: 150px;
+    height: 33%;
+    text-align: center;
+    border-radius: 5px;
+    margin-right: 20px;
+    margin-top: 20px;
+    text-decoration: none;
+    list-style: none;
+    background-color: white;
+    vertical-align: top;
+}
+#champ{
+    
+    padding-top: 20px;
+    
+}
+#form{
+    background-color: white;
+    padding-top: 15px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px; 
+}
+#rech{
+    padding-top: 20px;
+}
+#inscription{
+    padding: 10px;
+    display: block;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    width: 94%;
+    height: 60%;
+    border: 1px solid grey;
+    background-color: white;
+    text-align: center;
+}
+.box{
+    min-width: 15%;
+    
+    margin-left: 10px;
+}
+/* css du formulaire de connection généré par Symfony */
+#form_mail, #form_password{
+    width: 50%;
+    padding-left: 5px;
+}
+.required{
+    
+    padding-right: 10px;
+}
+#formInsc{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 40%;
+    margin: auto;
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 8px 1px black;
+    -moz-box-shadow: 0px 0px 8px 1px black;
+    box-shadow: 0px 0px 8px 1px black;
+    margin-top: 20px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 8px;
+    
+    
+}
+/*sélection de tous les enfants de mon formulaire d'inscription pour créer leur CSS*/ 
+#formInsc *{
+    display: table-row;
+    font-family: Georgia;
+    width: auto;
+}
+#formInsc div label.required{
+    padding: 8px;
+    float: left;
+    width: auto;
+    
+}
+#formInsc div #form_challenge,#form_libreg,#form_datreg,#form_lieureg,#form_distance,#form_nomvoil,#form_nomlic,#form_numlicski{
+    margin-top: 8px;
+    float: right;
+    margin-left: 45px;
+    width: auto;
+}
+.error{
+    background-color: white;
+    color:red
+}
+
+
