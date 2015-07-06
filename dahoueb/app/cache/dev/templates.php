@@ -78,6 +78,7 @@
   'DoctrineBundle:Collector:db.html.twig' => 'D:\\projetsymfony\\dahoueb\\vendor\\doctrine\\doctrine-bundle/Resources/views/Collector/db.html.twig',
   'DoctrineBundle:Collector:explain.html.twig' => 'D:\\projetsymfony\\dahoueb\\vendor\\doctrine\\doctrine-bundle/Resources/views/Collector/explain.html.twig',
   'DL2015IndexBundle::aside.html.twig' => 'D:\\projetsymfony\\dahoueb\\src\\DL2015\\IndexBundle/Resources/views/aside.html.twig',
+  'DL2015IndexBundle::aside2.html.twig' => 'D:\\projetsymfony\\dahoueb\\src\\DL2015\\IndexBundle/Resources/views/aside2.html.twig',
   'DL2015IndexBundle::contenuArticle.html.twig' => 'D:\\projetsymfony\\dahoueb\\src\\DL2015\\IndexBundle/Resources/views/contenuArticle.html.twig',
   'DL2015IndexBundle::indexLayout.html.twig' => 'D:\\projetsymfony\\dahoueb\\src\\DL2015\\IndexBundle/Resources/views/indexLayout.html.twig',
   'DL2015IndexBundle::inscription.html.twig' => 'D:\\projetsymfony\\dahoueb\\src\\DL2015\\IndexBundle/Resources/views/inscription.html.twig',

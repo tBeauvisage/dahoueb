@@ -1,29 +1,30 @@
 {% extends "DL2015IndexBundle::indexLayout.html.twig" %}
 {% block aside %}
-<div id="reseaux">
-    <p>Suivez-nous sur les réseaux sociaux</p>
-    <a href="https://fr-fr.facebook.com/ycvalandre"><img src="../../web/bundles/index/images/FB.png"/></a>
-    <a href="https://twitter.com/ycvalandre"><img src="../../web/bundles/index/images/Tw.png"/></a>
-</div>
-<div id="connection">
-    <div id="bandeauInt">Connection</div>
-    
-  {% block message %}
-      {%endblock%}
-        {{ form(form) }}
-   
-</div>
-<div id="infChall">
-    <div id="bandeauInt">Challenge</div>
-    
-</div>
-<div id="recherche">
-    <div id="bandeauInt">Recherche</div>
-    <div id="champ">
-        <input type="text" name="recherche" id="cherche" placeholder="recherche">
-        <div id="rech"><a id="lien" href="#">Rechercher !</a></div>
+    <div id="reseaux">
+        <p>Suivez-nous sur les réseaux sociaux</p>
+        <a href="https://fr-fr.facebook.com/ycvalandre"><img src="../../web/bundles/index/images/FB.png"/></a>
+        <a href="https://twitter.com/ycvalandre"><img src="../../web/bundles/index/images/Tw.png"/></a>
     </div>
-</div>
+    <div id="connection">
+        <div id="bandeauInt">Connection</div>
+
+        {% block message %}
+        {%endblock%}
+        {{ form(form) }}
+       
+
+    </div>
+    <div id="infChall">
+        <div id="bandeauInt">Challenge</div>
+
+    </div>
+    <div id="recherche">
+        <div id="bandeauInt">Recherche</div>
+        <div id="champ">
+            <input type="text" name="recherche" id="cherche" placeholder="recherche">
+            <div id="rech"><a id="lien" href="#">Rechercher !</a></div>
+        </div>
+    </div>
 
 
 {% endblock %}

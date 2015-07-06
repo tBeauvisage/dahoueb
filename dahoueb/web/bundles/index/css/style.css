@@ -297,9 +297,12 @@ nav ul ul li a:hover {
     margin-left: 45px;
     width: auto;
 }
-.error{
+#error{
     background-color: white;
-    color:red
+    color:red;
+    margin: 0;
+    font-size: 14px;
+    
 }
 
 

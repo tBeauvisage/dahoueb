@@ -11,6 +11,7 @@ use DL2015\IndexBundle\Entity\Participe;
 use Symfony\Component\Form\FormBuilder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class DefaultController extends Controller {
 
@@ -28,36 +29,47 @@ class DefaultController extends Controller {
                 ->getManager()
                 ->getRepository('DL2015IndexBundle:Proprietaire')
         ;
-        
+        $prop2 = new Proprietaire();
         $prop2 = $repository->findOneBy(array('mail' => $prop->getMail()));
+        $nom = $prop2->getNommbr();
+
 
         if ($form->isSubmitted()) {
-            if ($prop2 == NULL) {
+            if ($prop2->getMail() == NULL) {
                 return $this->render('DL2015IndexBundle::message.html.twig', array('form' => $form->createView()));
+            } elseif ($prop->getPassword() != $prop2->getPassword()) {
+                return $this->render('DL2015IndexBundle::message.html.twig', array('form' => $form->createView()));
+            } else {
+                $session = new Session();
+               
+                $session->set('user', $prop2->getNommbr());
+                $session->set('id', $prop2->getIdmbr());
+                $session->set('club', $prop2->getIdclub());
+                return $this->render('DL2015IndexBundle::aside2.html.twig');
             }
         }
-        return $this->render('DL2015IndexBundle::aside.html.twig', array('form' => $form->createView()));
+        return $this->render('DL2015IndexBundle::aside.html.twig', array('form' => $form->createView(), 'nom' => $nom));
     }
 
-   
-public function registerAction(){
+    public function registerAction() {
         $challenge = new Challenge();
         $regate = new Regate();
         $voilier = new Voilier();
         $licencie = new Licencie();
         $participe = new Participe();
-        
-        $form = $this->createFormBuilder(array($challenge,$regate,$voilier,$licencie,$participe))
-                ->add('challenge','text', array('label' => 'Challenge en cours'))
-                ->add('libreg','choice', array('label' => 'Régate'))
-                ->add('datreg','text', array('label' => 'Date régate'))
-                ->add('lieureg','text', array('label' => 'Lieu'))
-                ->add('distance','text', array('label' => 'Distance'))
-                ->add('nomvoil','choice', array('label' => 'voilier(s) non inscrit(s)'))
-                ->add('nomlic','choice', array('label' => 'Noms équipiers'))
-                ->add('numlicski','choice', array('label' => 'Skipper'))
-                ->add('Valider inscription','submit')
+
+        $form = $this->createFormBuilder(array($challenge, $regate, $voilier, $licencie, $participe))
+                ->add('challenge', 'text', array('label' => 'Challenge en cours'))
+                ->add('libreg', 'choice', array('label' => 'Régate'))
+                ->add('datreg', 'text', array('label' => 'Date régate'))
+                ->add('lieureg', 'text', array('label' => 'Lieu'))
+                ->add('distance', 'text', array('label' => 'Distance'))
+                ->add('nomvoil', 'choice', array('label' => 'voilier(s) non inscrit(s)'))
+                ->add('nomlic', 'choice', array('label' => 'Noms équipiers'))
+                ->add('numlicski', 'choice', array('label' => 'Skipper'))
+                ->add('Valider inscription', 'submit')
                 ->getForm();
-       return $this->render('DL2015IndexBundle::inscription.html.twig', array('form' => $form->createView()));
-   }
+        return $this->render('DL2015IndexBundle::inscription.html.twig', array('form' => $form->createView()));
+    }
+
 }
