@@ -31,24 +31,24 @@ class DefaultController extends Controller {
         ;
         $prop2 = new Proprietaire();
         $prop2 = $repository->findOneBy(array('mail' => $prop->getMail()));
-        $nom = $prop2->getNommbr();
+        var_dump($prop);
 
 
         if ($form->isSubmitted()) {
-            if ($prop2->getMail() == NULL) {
+            if ($prop2 == NULL) {
                 return $this->render('DL2015IndexBundle::message.html.twig', array('form' => $form->createView()));
             } elseif ($prop->getPassword() != $prop2->getPassword()) {
                 return $this->render('DL2015IndexBundle::message.html.twig', array('form' => $form->createView()));
             } else {
                 $session = new Session();
-               
+
                 $session->set('user', $prop2->getNommbr());
                 $session->set('id', $prop2->getIdmbr());
                 $session->set('club', $prop2->getIdclub());
                 return $this->render('DL2015IndexBundle::aside2.html.twig');
             }
         }
-        return $this->render('DL2015IndexBundle::aside.html.twig', array('form' => $form->createView(), 'nom' => $nom));
+        return $this->render('DL2015IndexBundle::aside.html.twig', array('form' => $form->createView()));
     }
 
     public function registerAction() {
@@ -70,6 +70,18 @@ class DefaultController extends Controller {
                 ->add('Valider inscription', 'submit')
                 ->getForm();
         return $this->render('DL2015IndexBundle::inscription.html.twig', array('form' => $form->createView()));
+    }
+
+    public function logoutAction() {
+        $session = $this->getRequest()->getSession();
+        $session->invalidate();
+        $url = $this->generateUrl('dl2015_index_homepage');
+    return $this->redirect($url);
+    
+    
+
+        
+        
     }
 
 }

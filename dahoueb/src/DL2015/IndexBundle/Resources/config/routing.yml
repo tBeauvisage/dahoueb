@@ -5,3 +5,7 @@ dl2015_index_homepage:
 dl2015_register:
     path:     /register
     defaults: { _controller: DL2015IndexBundle:Default:register }
+    
+dl2015_logout:
+    path:     /logout
+    defaults: { _controller: DL2015IndexBundle:Default:logout }

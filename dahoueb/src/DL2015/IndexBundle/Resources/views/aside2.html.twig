@@ -9,7 +9,7 @@
         <div id="bandeauInt">Connection</div>
 
         <p>Bonjour {{ app.session.get('user') }}</p>
-        <p><a href=# >Se Déconnecter </a></p>
+        <p><a href="{{ path ('dl2015_logout')}}" >Se Déconnecter </a></p>
 
     </div>
     <div id="infChall">
