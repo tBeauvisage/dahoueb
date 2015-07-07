@@ -12,4 +12,18 @@ use Doctrine\ORM\EntityRepository;
  */
 class RegateRepository extends EntityRepository
 {
+public function getRegate(){
+    date_default_timezone_set('Europe/Paris');
+        $date = date('Y/m/d', time());
+return $this
+->createQueryBuilder('r')
+->join('r.cdochal', 'chal')
+->addSelect('chal')
+->where('chal.datdebut < :date')
+->setParameter('date', new \Datetime(date($date)))
+->andWhere('chal.datfin > :date')
+->setParameter('date', new \Datetime(date($date)));
+
+;
+}
 }

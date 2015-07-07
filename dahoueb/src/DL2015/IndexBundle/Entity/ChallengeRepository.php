@@ -12,10 +12,9 @@ use Doctrine\ORM\EntityRepository;
  */
 class ChallengeRepository extends EntityRepository {
 
-    public function findByCurrentChallenge() {
+    public function findByCurrentDate() {
         date_default_timezone_set('Europe/Paris');
         $date = date('Y/m/d', time());
-        var_dump($date);
         $qb = $this->createQueryBuilder('c');
         $qb->where('c.datdebut < :date')
                 ->setParameter('date', new \Datetime(date($date)))

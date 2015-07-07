@@ -9,3 +9,8 @@ dl2015_register:
 dl2015_logout:
     path:     /logout
     defaults: { _controller: DL2015IndexBundle:Log:logout }
+    
+dl2015_nolog:
+     path:     /error
+     defaults: { _controller: DL2015IndexBundle:Register:noLog }
+    

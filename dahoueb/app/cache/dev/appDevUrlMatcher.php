@@ -142,6 +142,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'DL2015\\IndexBundle\\Controller\\LogController::logoutAction',  '_route' => 'dl2015_logout',);
         }
 
+        // dl2015_nolog
+        if ($pathinfo === '/error') {
+            return array (  '_controller' => 'DL2015\\IndexBundle\\Controller\\RegisterController::noLogAction',  '_route' => 'dl2015_nolog',);
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

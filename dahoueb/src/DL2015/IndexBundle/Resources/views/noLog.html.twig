@@ -1,0 +1,10 @@
+{% extends "::layoutBase.html.twig" %}
+
+{% block content %}
+   <div id="center">
+        <section id="noconnect">
+            <p>Vous devez être connecté pour accéder à cette page</p>
+            <a href="{{ path ('dl2015_index_homepage') }}"><input type="submit" value="Retour à l'accueil" ></a>
+        </section>
+    </div> 
+{% endblock %}

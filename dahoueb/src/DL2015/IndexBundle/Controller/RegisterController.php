@@ -15,6 +15,14 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 class RegisterController extends Controller {
      public function registerAction() {
+         
+         $session=$this->getRequest()->getSession();
+        $id=$session->get('user');
+        
+        if ($id == null ){
+            $url=$this->generateUrl('dl2015_nolog');
+        return $this->redirect($url);}
+        else{
         $challenge = new Challenge();
         $regate = new Regate();
         $voilier = new Voilier();
@@ -26,22 +34,33 @@ class RegisterController extends Controller {
                 ->getDoctrine()
                 ->getManager()
                 ->getRepository('DL2015IndexBundle:Challenge');
-        $results = $repository->findByCurrentChallenge();
+        $curchal = $repository->findByCurrentDate();
+        $challenge=$curchal[0];
+        $libel = $challenge->getChallenge();
         
-//        $libel = $challenge->getChallenge();
-       var_dump($results);
-   
-        $form = $this->createFormBuilder(array($challenge, $regate, $voilier, $licencie, $participe))
-                ->add('challenge', 'text', array('label' => 'Challenge en cours'))
-                ->add('libreg', 'choice', array('label' => 'Régate'))
-                ->add('datreg', 'text', array('label' => 'Date régate'))
-                ->add('lieureg', 'text', array('label' => 'Lieu'))
-                ->add('distance', 'text', array('label' => 'Distance'))
-                ->add('nomvoil', 'choice', array('label' => 'voilier(s) non inscrit(s)'))
-                ->add('nomlic', 'choice', array('label' => 'Noms équipiers'))
-                ->add('numlicski', 'choice', array('label' => 'Skipper'))
+        $builder = $this->createFormBuilder(array( $regate, $voilier, $licencie, $participe))
+                ->add('regate', 'entity', array('label' => 'Régate',
+                                                'class' => 'DL2015IndexBundle:Regate',
+                                                'choice_label'=>'libreg',
+                                                'query_builder' => function (\DL2015\IndexBundle\Entity\RegateRepository $er)
+                                                {
+                                                    return $er->getRegate();
+                                                }
+            ))
+    
+                
+//                ->add('datreg', 'text', array('label' => 'Date régate'))
+//                ->add('lieureg', 'text', array('label' => 'Lieu'))
+//                ->add('distance', 'text', array('label' => 'Distance'))
+//                ->add('nomvoil', 'choice', array('label' => 'voilier(s) non inscrit(s)'))
+//                ->add('nomlic', 'choice', array('label' => 'Noms équipiers'))
+//                ->add('numlicski', 'choice', array('label' => 'Skipper'))
                 ->add('Valider inscription', 'submit')
                 ->getForm();
-        return $this->render('DL2015IndexBundle::inscription.html.twig', array('form' => $form->createView()));
+        return $this->render('DL2015IndexBundle::inscription.html.twig', array('form' => $form->createView(),"libel"=>$libel));
+        }
+    }
+    public function noLogAction() {
+        return $this->render('DL2015IndexBundle::noLog.html.twig');
     }
 }

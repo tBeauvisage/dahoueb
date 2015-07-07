@@ -32,6 +32,7 @@ class appDevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
         'dl2015_index_homepage' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'DL2015\\IndexBundle\\Controller\\LogController::indexAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/index',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
         'dl2015_register' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'DL2015\\IndexBundle\\Controller\\RegisterController::registerAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/register',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
         'dl2015_logout' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'DL2015\\IndexBundle\\Controller\\LogController::logoutAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/logout',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
+        'dl2015_nolog' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'DL2015\\IndexBundle\\Controller\\RegisterController::noLogAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/error',    ),  ),  4 =>   array (  ),  5 =>   array (  ),),
     );
 
     /**
