@@ -1,11 +1,11 @@
 dl2015_index_homepage:
     path:     /index
-    defaults: { _controller: DL2015IndexBundle:Default:index }
+    defaults: { _controller: DL2015IndexBundle:Log:index }
 
 dl2015_register:
     path:     /register
-    defaults: { _controller: DL2015IndexBundle:Default:register }
+    defaults: { _controller: DL2015IndexBundle:Register:register }
     
 dl2015_logout:
     path:     /logout
-    defaults: { _controller: DL2015IndexBundle:Default:logout }
+    defaults: { _controller: DL2015IndexBundle:Log:logout }

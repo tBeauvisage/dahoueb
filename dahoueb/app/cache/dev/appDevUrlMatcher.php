@@ -129,17 +129,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         // dl2015_index_homepage
         if ($pathinfo === '/index') {
-            return array (  '_controller' => 'DL2015\\IndexBundle\\Controller\\DefaultController::indexAction',  '_route' => 'dl2015_index_homepage',);
+            return array (  '_controller' => 'DL2015\\IndexBundle\\Controller\\LogController::indexAction',  '_route' => 'dl2015_index_homepage',);
         }
 
         // dl2015_register
         if ($pathinfo === '/register') {
-            return array (  '_controller' => 'DL2015\\IndexBundle\\Controller\\DefaultController::registerAction',  '_route' => 'dl2015_register',);
+            return array (  '_controller' => 'DL2015\\IndexBundle\\Controller\\RegisterController::registerAction',  '_route' => 'dl2015_register',);
         }
 
         // dl2015_logout
         if ($pathinfo === '/logout') {
-            return array (  '_controller' => 'DL2015\\IndexBundle\\Controller\\DefaultController::logoutAction',  '_route' => 'dl2015_logout',);
+            return array (  '_controller' => 'DL2015\\IndexBundle\\Controller\\LogController::logoutAction',  '_route' => 'dl2015_logout',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
