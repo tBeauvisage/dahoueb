@@ -17,7 +17,7 @@ class LogController extends Controller {
 
     public function indexAction(Request $request) {
         $prop = new Proprietaire();
-        $challenge = new Challenge();
+       
         $repository = $this
                 ->getDoctrine()
                 ->getManager()

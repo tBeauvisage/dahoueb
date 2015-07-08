@@ -22,6 +22,8 @@ return $this
 ->where('chal.datdebut < :date')
 ->setParameter('date', new \Datetime(date($date)))
 ->andWhere('chal.datfin > :date')
+->setParameter('date', new \Datetime(date($date)))
+->andWhere('r.datreg > :date')
 ->setParameter('date', new \Datetime(date($date)));
 
 ;

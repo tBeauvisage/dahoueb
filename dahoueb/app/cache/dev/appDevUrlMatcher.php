@@ -132,9 +132,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'DL2015\\IndexBundle\\Controller\\LogController::indexAction',  '_route' => 'dl2015_index_homepage',);
         }
 
-        // dl2015_register
-        if ($pathinfo === '/register') {
-            return array (  '_controller' => 'DL2015\\IndexBundle\\Controller\\RegisterController::registerAction',  '_route' => 'dl2015_register',);
+        if (0 === strpos($pathinfo, '/register')) {
+            // dl2015_regate
+            if ($pathinfo === '/register/regate') {
+                return array (  '_controller' => 'DL2015\\IndexBundle\\Controller\\RegisterController::regateAction',  '_route' => 'dl2015_regate',);
+            }
+
+            // dl2015_voilier
+            if ($pathinfo === '/register/voilier') {
+                return array (  '_controller' => 'DL2015\\IndexBundle\\Controller\\RegisterController::voilierAction',  '_route' => 'dl2015_voilier',);
+            }
+
         }
 
         // dl2015_logout

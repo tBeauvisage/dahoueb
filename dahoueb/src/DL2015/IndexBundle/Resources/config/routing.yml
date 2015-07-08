@@ -2,9 +2,13 @@ dl2015_index_homepage:
     path:     /index
     defaults: { _controller: DL2015IndexBundle:Log:index }
 
-dl2015_register:
-    path:     /register
-    defaults: { _controller: DL2015IndexBundle:Register:register }
+dl2015_regate:
+    path:     /register/regate
+    defaults: { _controller: DL2015IndexBundle:Register:regate }
+
+dl2015_voilier:
+    path:     /register/voilier
+    defaults: { _controller: DL2015IndexBundle:Register:voilier }
     
 dl2015_logout:
     path:     /logout

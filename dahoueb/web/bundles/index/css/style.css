@@ -291,7 +291,7 @@ nav ul ul li a:hover {
     width: auto;
     
 }
-#formInsc div #form_challenge,#form_regate,#form_datreg,#form_lieureg,#form_distance,#form_nomvoil,#form_nomlic,#form_numlicski{
+#formInsc div #form_challenge,#form_libreg,#form_datreg,#form_lieureg,#form_distance,#form_nomvoil,#form_nomlic,#form_numlicski{
     margin-top: 8px;
     float: right;
     margin-left: 45px;
