@@ -20,11 +20,7 @@ return $this
 ->createQueryBuilder('v')
 ->leftjoin('v.idmbr', 'prop')
 ->addSelect('prop')
-->leftjoin('v.numvoil', 'part')
-->addSelect('part')
-->where('part.codepar = :participe')
-->setParameter('participe', null )
-->andWhere('prop.idmbr > :id')
+->where('prop.idmbr = :id')
 ->setParameter('id', $id)
 
 

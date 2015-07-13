@@ -150,9 +150,38 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'DL2015\\IndexBundle\\Controller\\LogController::logoutAction',  '_route' => 'dl2015_logout',);
         }
 
-        // dl2015_nolog
-        if ($pathinfo === '/error') {
-            return array (  '_controller' => 'DL2015\\IndexBundle\\Controller\\RegisterController::noLogAction',  '_route' => 'dl2015_nolog',);
+        if (0 === strpos($pathinfo, '/error')) {
+            // dl2015_nolog
+            if ($pathinfo === '/error/log') {
+                return array (  '_controller' => 'DL2015\\IndexBundle\\Controller\\RegisterController::noLogAction',  '_route' => 'dl2015_nolog',);
+            }
+
+            // dl2015_voilier_error
+            if ($pathinfo === '/error/voilier') {
+                return array (  '_controller' => 'DL2015\\IndexBundle\\Controller\\RegisterController::noVoilierAction',  '_route' => 'dl2015_voilier_error',);
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/register')) {
+            // dl2015_proprio
+            if ($pathinfo === '/register/proprietaire') {
+                return array (  '_controller' => 'DL2015\\IndexBundle\\Controller\\RegisterController::proprietaireAction',  '_route' => 'dl2015_proprio',);
+            }
+
+            if (0 === strpos($pathinfo, '/register/equipage')) {
+                // dl2015_equip1
+                if ($pathinfo === '/register/equipage/1') {
+                    return array (  '_controller' => 'DL2015\\IndexBundle\\Controller\\RegisterController::equip1Action',  '_route' => 'dl2015_equip1',);
+                }
+
+                // dl2015_equip2
+                if ($pathinfo === '/register/equipage/2') {
+                    return array (  '_controller' => 'DL2015\\IndexBundle\\Controller\\RegisterController::equip2Action',  '_route' => 'dl2015_equip2',);
+                }
+
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

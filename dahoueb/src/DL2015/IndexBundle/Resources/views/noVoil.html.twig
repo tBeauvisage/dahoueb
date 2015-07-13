@@ -1,0 +1,10 @@
+{% extends "::layoutBase.html.twig" %}
+
+{% block content %}
+   <div id="center">
+        <section id="noconnect">
+            <p>Le voilier que vous avez séléctionné est déja inscrit à la régate que vous avez choisi .</p>
+            <a href="{{ path ('dl2015_voilier') }}"><input type="submit" value="Retour au choix précédent" ></a>
+        </section>
+    </div> 
+{% endblock %}

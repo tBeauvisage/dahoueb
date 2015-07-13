@@ -18,6 +18,7 @@ class Voilier
      * @ORM\Column(name="NUMVOIL", type="decimal", precision=4, scale=0, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
+     * 
      */
     private $numvoil;
 

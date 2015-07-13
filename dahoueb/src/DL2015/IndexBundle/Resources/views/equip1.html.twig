@@ -1,0 +1,16 @@
+{% extends "layoutBase.html.twig" %}
+
+
+{% block content %}
+    Challenge : {{ libelchal }}</br>
+    Regate sélectionnée : {{ libelreg }}</br>
+    Voilier en cours d'inscription : {{ nomvoil }}</br>
+    Propiétaire participant : oui</br>
+    <a href ="{{ path ('dl2015_proprio') }}">Retour au choix précédent</a></br></br>
+    Veuillez choisir les équipiers qui participeront à la régate ( 2 maximum )
+    {#{{ form(form) }}#}
+    
+    
+
+
+{% endblock %}

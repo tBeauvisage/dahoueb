@@ -15,6 +15,22 @@ dl2015_logout:
     defaults: { _controller: DL2015IndexBundle:Log:logout }
     
 dl2015_nolog:
-     path:     /error
+     path:     /error/log
      defaults: { _controller: DL2015IndexBundle:Register:noLog }
+     
+dl2015_voilier_error:
+    path:     /error/voilier
+    defaults: { _controller: DL2015IndexBundle:Register:noVoilier }
+    
+dl2015_proprio:
+    path:     /register/proprietaire
+    defaults: { _controller: DL2015IndexBundle:Register:proprietaire }
+    
+dl2015_equip1:
+     path:     /register/equipage/1
+     defaults: { _controller: DL2015IndexBundle:Register:equip1 }
+     
+dl2015_equip2:
+     path:     /register/equipage/2
+     defaults: { _controller: DL2015IndexBundle:Register:equip2 }
     

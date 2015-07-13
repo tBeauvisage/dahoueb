@@ -1,0 +1,15 @@
+{% extends "layoutBase.html.twig" %}
+
+
+{% block content %}
+    Challenge : {{ libelchal }}</br>
+    Regate sélectionnée : {{ libelreg }}</br>
+    Voilier en cours d'inscription : {{ nomvoil }}</br>
+    <a href ="{{ path ('dl2015_voilier') }}">Retour au choix précédent</a></br></br>
+    Souhaitez vous participer à cette régate sur le voilier séléctionné ?
+    {{ form(form) }}
+    
+    
+
+
+{% endblock %}

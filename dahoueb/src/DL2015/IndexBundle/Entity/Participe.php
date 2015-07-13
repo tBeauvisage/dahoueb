@@ -80,7 +80,7 @@ class Participe
     /**
      * @var \Voilier
      *
-     * @ORM\ManyToOne(targetEntity="Voilier")
+     * @ORM\ManyToOne(targetEntity="Voilier", inversedBy="numvoil")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="NUMVOIL", referencedColumnName="NUMVOIL")
      * })
