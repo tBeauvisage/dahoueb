@@ -25,5 +25,6 @@ class ParticipeRepository extends EntityRepository {
 
         return $qb->getQuery()->getResult();
     }
+   
 
 }
